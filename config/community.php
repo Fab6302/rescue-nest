@@ -1,0 +1,28 @@
+<?php
+return [
+    'areas' => ['Mirpur', 'Banasree', 'Uttara', 'Dhanmondi', 'Mohammadpur', 'Gulshan', 'Kalshi', 'ECB', 'Other'],
+    'animals' => ['Cat', 'Dog', 'Bird', 'Rabbit', 'Other'],
+    'categories' => ['Treats', 'Food', 'Toys', 'Litter', 'Accessories', 'Other'],
+    'kinds' => [
+        'pet' => ['Pets', 'Pet profile', ['area', 'animal', 'breed', 'age', 'weight', 'diet', 'favorites', 'father', 'mother'], true],
+        'update' => ['Community', 'Pet update', [], true, 'pet'],
+        'comment' => ['Comments', 'Comment', [], false, 'update|comment'],
+        'adoption' => ['Adoption', 'Adoption listing', ['area', 'animal', 'age', 'health', 'care', 'contact'], true],
+        'application' => ['Adoption requests', 'Adoption request', ['experience', 'care'], false, 'adoption'],
+        'question' => ['Questions', 'Question or reply', [], false, 'application|sighting'],
+        'shop' => ['Shops', 'Shop profile', ['area', 'address', 'hours', 'contact'], true],
+        'product' => ['Products', 'Product', ['category', 'price', 'availability'], true, 'shop'],
+        'review' => ['Reviews', 'Shop review', ['rating'], false, 'shop'],
+        'rescue' => ['Rescue', 'Rescue case', ['area', 'animal', 'place', 'urgency'], true],
+        'lost' => ['Lost', 'Lost pet notice', ['area', 'animal', 'date', 'contact'], true],
+        'found' => ['Found', 'Found pet notice', ['area', 'animal', 'date', 'contact'], true],
+        'sighting' => ['Sightings', 'Sighting', ['place', 'date', 'time'], false, 'lost'],
+        'report' => ['Moderation', 'Content report', ['reason'], false],
+    ],
+    'members' => ['Fabin' => 5, 'Afsara' => 1, 'Raida' => 2, 'Sabrina' => 3, 'Nowrin' => 4,
+        'Sinha' => 6, 'Shahana' => 7, 'Nasir' => 8, 'Alpona' => 9, 'Zafrin' => 10],
+    'public' => ['pet', 'update', 'adoption', 'shop', 'product', 'rescue', 'lost', 'found'],
+    'fixed_titles' => ['comment', 'application', 'question', 'review', 'sighting', 'report'],
+    'reportable' => ['update', 'comment', 'adoption', 'shop', 'product', 'review', 'lost', 'found'],
+    'saveable' => ['update', 'adoption', 'shop'],
+];

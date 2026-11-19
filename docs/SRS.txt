@@ -1,0 +1,162 @@
+1. Project overview and problem
+Pet owners often use different social media groups to share pet photos, find adoption posts, locate pet shops, and search for missing animals. Information can become difficult to find, and posts may not clearly show the area, availability, or contact details.
+We will build PetConnect, a simple pet community website. Users can create pet profiles, share updates, publish adoption posts, browse pet shops and products by area, and post lost-and-found notices.
+We will keep the project manageable for a four-member university team. The main functions will use forms, photos, search filters, comments, and status updates.
+2. Objectives
+We will:
+Help users create pet profiles and share updates.
+Help people find animals available for adoption in their preferred area.
+Help pet owners manage adoption requests.
+Help users find local pet shops and products such as cat treats, food, toys, and litter.
+Help owners publish lost-pet notices and receive sighting reports.
+Help moderators review inappropriate content.
+3. Users and account functions
+Visitors can browse public pet profiles, adoption posts, shop listings, and lost-and-found notices.
+Registered users can manage pet profiles, publish posts, comment, save listings, send adoption requests, review shops, and report sightings.
+Shop owners can manage their shop profiles and product listings.
+Moderators can review reported content and remove inappropriate posts or reviews.
+We will provide registration, login, logout, and account editing as supporting functions. These functions will not count among the 20 proposed features.
+Users can only edit their own records unless they have moderator permission.
+4. Proposed functional requirements
+1. Pet profile management
+Users can create profiles for their pets with a name, photo, animal type, breed, age, area, and description. They can update their pets’ information.
+Acceptance criterion: Each pet profile belongs to its owner, and other users cannot edit it.
+2. Pet profile discovery
+Users can browse public pet profiles and search or filter them by animal type, breed, and area.
+Acceptance criterion: The system returns profiles that match the selected conditions and displays a message when no profiles match.
+3. Pet update posts
+Users can share a photo and a short update linked to one of their pet profiles. They can edit or remove their own updates.
+Acceptance criterion: Each update shows the related pet, owner, and posting date.
+4. Comments and replies
+Registered users can comment on pet updates and reply to other comments. They can edit or remove their own comments.
+Acceptance criterion: Comments and replies appear under the correct post and identify their authors.
+5. Saved posts and listings
+Users can save pet updates, adoption posts, and shop listings. They can view saved items together and remove items from their collection.
+Acceptance criterion: Saved items remain available in the user’s collection without duplicate entries.
+6. Adoption post management
+Users can publish adoption posts with the pet’s photo, animal type, age, health notes, care needs, area, and contact information. They can update or withdraw their own posts.
+Acceptance criterion: A published post contains the required details and clearly displays its adoption status.
+7. Adoption search and filtering
+Users can search adoption posts and filter them by area, animal type, age group, and availability.
+Acceptance criterion: Search results match the selected conditions, and adopted or withdrawn posts do not appear in the default available list.
+8. Adoption request submission
+Registered users can send an adoption request with a short introduction, pet-care experience, and care plan. They can view or withdraw their requests.
+Acceptance criterion: Each request links to the correct applicant and adoption post, and duplicate active requests are blocked.
+9. Adoption request review
+Adoption post owners can review requests, ask applicants for more information, and accept or decline requests. Applicants can respond to questions.
+Acceptance criterion: Applicants can view their request status, and the system records the owner’s decision.
+10. Adoption completion
+Post owners can confirm that a pet has been handed over to an accepted applicant and mark the adoption as completed.
+Acceptance criterion: The pet is marked as adopted, further requests are blocked, and other pending requests are closed with an explanation.
+11. Pet shop profile management
+Shop owners can create and update profiles with the shop’s name, description, address, area, opening hours, contact details, and photo.
+Acceptance criterion: Each shop profile displays its required information, and only its owner or a moderator can change it.
+12. Shop product listing management
+Shop owners can list products such as cat treats, food, toys, litter, and accessories. Each listing includes a name, category, photo, price, and availability.
+Acceptance criterion: Each product belongs to a shop, prices cannot be negative, and unavailable products are clearly marked.
+13. Pet shop search by area
+Users can select an area and browse pet shops located there. They can open a shop profile to view its address, hours, contact details, and products.
+Acceptance criterion: Selecting an area returns shops registered in that area.
+14. Pet product search and filtering
+Users can search for products by name and filter results by category, price range, availability, and shop area.
+Acceptance criterion: Results match the selected conditions and identify the shop offering each product.
+15. Shop ratings and reviews
+Registered users can rate a shop and write a review. They can update or remove their own review.
+Acceptance criterion: Ratings stay within the permitted range, each user has one current review per shop, and the average rating reflects the stored reviews.
+16. Lost-pet reporting
+Users can publish a lost-pet notice with a photo, identifying details, last-seen date, area, and contact information. They can update the notice and mark the pet as reunited.
+Acceptance criterion: Each notice displays its last-seen details and clearly shows whether it remains open.
+17. Found-pet reporting
+Users can publish a found-pet notice with a photo, description, found date, area, and contact information. They can update or close their own notices.
+Acceptance criterion: Each notice clearly identifies it as a found-pet report and displays its current status.
+18. Lost-and-found search
+Users can search lost-and-found notices and filter them by notice type, animal type, area, and date.
+Acceptance criterion: Results match the selected conditions, and closed notices are excluded from the default open-notice list.
+19. Pet sighting reports
+Registered users can respond to a lost-pet notice with the place, date, time, and description of a possible sighting. The notice owner can mark a report as reviewed or request clarification.
+Acceptance criterion: Each sighting links to the correct notice and is visible to the notice owner and the user who submitted it.
+20. Content reporting and moderation
+Users can report inappropriate posts, listings, comments, or shop reviews by selecting a reason and adding details. Moderators can review the report, dismiss it, or remove the reported content.
+Acceptance criterion: Each report retains its status and moderation decision, and only authorized moderators can resolve it.
+5. Technology and MVC architecture
+Component
+Proposed choice
+Language
+PHP, with basic JavaScript where needed
+Framework
+Laravel; exact version recorded during setup
+Frontend
+Blade templates, HTML, CSS, and optional Bootstrap
+Database
+MySQL
+Version control
+Git and GitHub
+Testing
+Laravel testing tools and manual workflow checks
+
+We will use Laravel to organize the website through MVC. Blade templates will display pages, and MySQL will store related records. We will use a shared layout for navigation, forms, listing cards, and status messages.
+How we will use MVC
+Models will represent users, pets, updates, comments, saved items, adoption posts, adoption requests, shops, products, reviews, lost-and-found notices, sightings, and content reports.
+Views will display profiles, forms, search results, product listings, request statuses, and moderation pages.
+Controllers will receive requests, validate input, check permissions, and coordinate model operations and responses. Reusable rules will be placed in separate classes where needed.
+Main data and relationships
+We will store:
+Users and their roles.
+Pet profiles, pet updates, comments, and saved items.
+Adoption posts, adoption requests, and review decisions.
+Shop profiles, products, categories, and reviews.
+Lost-and-found notices and sighting reports.
+Content reports and moderation decisions.
+Each pet profile will belong to a user. Pet updates will link to a pet profile, and comments will link to an update.
+Each adoption request will link to an applicant and an adoption post. Each product and shop review will link to a shop. Each sighting will link to a lost-pet notice.
+Important records will identify their author and creation time.
+6. Quality and testing
+We will hash passwords, validate input, check permissions, and protect private account information. Users will choose which contact details to publish in their listings.
+We will limit uploaded images by file type and size. We will make forms usable on phones and computers and display clear validation messages. Long lists will use pagination.
+We will test:
+Creating and updating pet profiles and posts.
+Comments, replies, and saved items.
+Search results and area filters.
+Adoption requests, review decisions, and completion.
+Shop profiles, product prices, availability, and reviews.
+Lost-and-found notices and sighting reports.
+Content reporting and moderation.
+Missing fields, invalid input, and unauthorized actions.
+We will record actual test results, fix identified problems, and document known limitations.
+7. Project scope and external services
+The initial version will use forms, image uploads, database records, search filters, comments, and status updates.
+Users will select an area from a predefined list, such as Mirpur, Banasree, or Uttara. Shop searches will use the selected area. GPS, live location tracking, and maps are outside the initial scope.
+Product listings will provide information about prices and availability entered by shop owners. Users will contact shops directly to confirm details and arrange purchases.
+Online ordering, payments, delivery tracking, vet consultations, device integration, AI matching, and real-time chat are outside this version. No external API is required.
+All 20 features remain subject to faculty approval. We will confirm whether related management and search functions meet the course’s feature-counting requirements and revise the scope after feedback.
+8. Proposed team responsibilities
+Each member will implement the pages, backend logic, validation, and tests for their assigned features.
+Member
+Proposed responsibility
+Jannatul Ferdous Fabin
+Features 1–5: pet profiles, pet discovery, updates, comments, and saved items. Coordinate integration and documentation.
+Mawa Siddika Mim
+Features 6–10: adoption posts, search, requests, request review, and adoption completion.
+Md. Manzar Siraj
+Features 11–15: shop profiles, products, shop search, product search, and reviews.
+Avizid Sarkar Anik
+Features 16–20: lost-pet notices, found-pet notices, search, sightings, and moderation.
+
+We will share responsibility for framework setup, database design, account functions, and the common page layout. Each member will make meaningful Git commits and explain their contribution and the overall MVC structure.
+9. Initial development plan
+Sprint 0 — Preparation
+We will set up Laravel, configure MySQL, create the GitHub repository, and add team members and faculty as collaborators. We will prepare the SRS, initial class diagram, shared page templates, and workload distribution.
+Each member will practise routes, controllers, Blade templates, models, validation, and database relationships before implementing their assigned features.
+Week 1 — Pet profiles and community posts
+We will implement Features 1–5 and the supporting account functions. Users will create pet profiles, browse pets, publish updates, comment, and save items.
+Week 2 — Adoption
+We will implement Features 6–10. Users will publish adoption posts, search by area, send requests, review applicants, and confirm completed adoptions.
+Week 3 — Shops and products
+We will implement Features 11–15. Shop owners will publish shop and product information. Users will search by area or product and review shops.
+Week 4 — Lost-and-found and final integration
+We will implement Features 16–20. Users will publish notices, search for animals, and report sightings. Moderators will review reported content.
+We will also test connected workflows, fix issues, update documentation, and prepare the final demonstration. We will follow any additional dates or sprint requirements set by the faculty.
+Every Saturday, we will set measurable goals. Every Friday, we will review completed, partial, and unfinished work. Each member will push their current work and report blockers.
+10. Expected outcome
+We aim to deliver a simple MVC website where users can share pet profiles, find adoption opportunities, discover local pet shops and products, and help locate missing pets.
+The final submission will include source code, the SRS and class diagram, feature completion status, setup instructions, sprint records, actual test results, known limitations, and an AI-use disclosure. Each member will demonstrate and explain their contribution during the viva.
